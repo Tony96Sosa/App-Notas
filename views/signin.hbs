@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    {{> head}}
+</head>
+<body class="signin">
+    <main class="container p-4">
+    {{> errors}}
+    {{> messages}}
+    <div class="container">
+        <div class="col-sm-6 mx-auto">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h1 class="text-center">
+                        <span class="fa fa-sign-in"></span> Ingresar
+                    </h1>
+                    <form action="/signin" method="POST">
+                        <div class="form-group">
+                            {{!-- <label for="email">Email</label> --}}
+                            <input type="email" class="form-control" name="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            {{!-- <label for="password">Password</label> --}}
+                            <input type="password" class="form-control" name="password" placeholder="Contraseña">
+                        </div>
+                        <button class="btn btn-dark btn-block">
+                            Enviar Datos 
+                        </button>
+                    </form>
+                    <hr>
+                    <div class="text-center">
+                        <p>Nesecitas una cuenta? <a href="/signup">Registrarse</a></p>
+                        <p>O ir a <a href="/">Home</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+    {{> scripts}}
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    {{> head}}
+</head>
+<body class="profile">
+    {{> navigation}}
+    {{> messages}}
+    <div class="container p-4">
+        <header class="text-center">
+            <h2>Página de Perfil</h2>
+            {{!-- <a href="/" class="btn btn-dark">Sign Out <span class="fa fa-sign-in"></span></a> --}}
+        </header>
+        <hr>
+        <div class="container">
+            <div class="col-sm-6 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h3 class="card-title"><span class="fa fa-user"></span> Local</h3>
+                        </div>
+                        <p>
+                            <strong>Nombre: {{user.nombre}} </strong><br>
+                            <strong>Id: {{user._id}}</strong><br>
+                            <strong>Email: {{user.email}}</strong><br>
+                            <strong>Contraseña-Encyptada: {{user.password}}</strong>
+                        </p>
+                        <div class="text-center">
+                            <a href="/signout" class="btn btn-dark">Cerrar Sesion <span class="fa fa-sign-in"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{> scripts}}
+</body>
+</html>
