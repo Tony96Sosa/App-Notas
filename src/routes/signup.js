@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt'); //Encryptar
-const Usuario = require('../models/usuario');
+const Usuario = require('../models/usuario'); //Modelo de UsuarioDB
 
-// //Micro-Servicio para renderizar la pagina SIGN-UP
+//Micro-Servicio para renderizar la pagina SIGN-UP
 router.get('/signup', (req, res) => {
     res.render('signup')
 });
 
-// //Micro-Servicio para CREAR un Usuario
+//Micro-Servicio para CREAR un Usuario
 router.post('/signup', (req, res) => {
     let body = req.body;
     //Array de Errores para imprimir con FLASH
@@ -25,7 +25,7 @@ router.post('/signup', (req, res) => {
             email: body.email,
             password: bcrypt.hashSync(body.password, 10), //Encriptar antes de guardar
         });
-        // para grabar el usuario en la base de datos
+        // Guardar el usuario en la DB
         usuario.save((err, usuarioDB) => {
             if (err) {
                 req.flash('error_msg', 'Ya existe un Usuario con este Email');

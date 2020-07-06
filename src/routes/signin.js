@@ -1,15 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt');
-const Usuario = require('../models/usuario');
-const passport = require('passport');
+const passport = require('passport'); //verifica que exista el Usuario
 
 // //Micro-Servicio para renderizar la pagina SIGN-IN
 router.get('/signin', (req, res) => {
     res.render('signin')
 });
 
-// //Micro-Servicio para CREAR un Usuario
+// //Micro-Servicio para Ingresar un Usuario ya Registrado
 router.post('/signin', passport.authenticate('local', {
     successRedirect: '/profile',
     failureRedirect: '/signin',

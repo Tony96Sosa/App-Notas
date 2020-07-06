@@ -12,7 +12,7 @@ passport.use(new LocalStrategy({
             return done(err, false, { message: 'Algun campo esta vacio.' });
         }
         if (!usuarioDB) {
-            return done(null, false, { message: '(Usuario) incorrecto' });
+            return done(null, false, { message: 'No tiene un Usuario Registrado con este Email' });
         }
         if (!bcrypt.compareSync(password, usuarioDB.password)) {
             return done(null, false, { message: '(Contraseña) incorrecta' })

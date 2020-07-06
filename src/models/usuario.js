@@ -7,7 +7,6 @@ let usuarioSchema = new Schema({
     nombre: {
         type: String,
         required: false,
-        //required: [true, 'El nombre es requerido'],
     },
     email: {
         type: String,
@@ -18,23 +17,6 @@ let usuarioSchema = new Schema({
         type: String,
         required: [true, 'La contraseña es requerido'],
     },
-    // img: {
-    //     type: String,
-    //     required: false,
-    // },
-    // role: {
-    //     type: String,
-    //     default: 'USER_ROLE',
-    //     enum: rolesValidos,
-    // },
-    // estado: {
-    //     type: Boolean,
-    //     default: true,
-    // },
-    // google: {
-    //     type: Boolean,
-    //     default: false,
-    // }
 });
 
 usuarioSchema.plugin(uniqueValidator, { message: 'Error, {PATH} debe ser único. Ya existe un usuario con ese {PATH}.' });

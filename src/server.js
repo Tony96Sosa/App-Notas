@@ -8,20 +8,19 @@ const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
-//const morgan = require('morgan');
+const methodOverride = require('method-override');
 
 //Settings
 require('./config/config');
 require('./config/passport');
 app.set('view engine', 'hbs');
 hbs.registerPartials(path.resolve(__dirname, '../views/partials'));
-// app.engine('.hbs', exphbs({ defaultLayout: 'main' }));
 //app.set('views',path.resolve(__dirname, './views'));
 
 //Midlewares
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-// app.use(methodOverride('_method'));
+app.use(methodOverride('_method'));
 app.use(cookieParser());
 app.use(session({
     secret: 'keyboard cat',
@@ -33,7 +32,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-//Global Variables
+//Global Variables (es un middleware)
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
@@ -62,5 +61,5 @@ mongoose.connect(process.env.URLDB, {
 
 //Para levantar, arrancar el servidor 
 app.listen(process.env.PORT, () => {
-    console.log('Escuchando por el puerto', process.env.PORT);
+    console.log('Esta activo tu servidor por el puerto', process.env.PORT);
 });
