@@ -19,8 +19,7 @@ let urlDB;
 if (process.env.NODE_ENV === 'dev') {
     urlDB = 'mongodb://localhost:27017/User-Login';
 } else {
-    urlDB = 'mongodb+srv://tony:tony123456@cluster0-zi10g.mongodb.net/User-Login'
-        //process.env.MONGO_URL; // variable de entorno de heroku para no mostar la url de mongo
+    urlDB = process.env.MONGO_URL; // variable de entorno para no mostar la url de la DB
 }
 
 process.env.URLDB = urlDB;
